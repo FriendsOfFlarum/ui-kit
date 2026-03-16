@@ -1,6 +1,6 @@
 import type Mithril from 'mithril';
-import Search from "flarum/forum/components/Search";
-import type Discussion from "flarum/common/models/Discussion";
+import Search from 'flarum/forum/components/Search';
+import type Discussion from 'flarum/common/models/Discussion';
 export default class DiscussionSearchSource implements Search {
     protected results: Map<string, unknown[]>;
     protected onSelect: (discussion: Discussion) => void;

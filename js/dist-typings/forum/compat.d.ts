@@ -1,5 +1,5 @@
-import DiscussionSearch from "./components/DiscussionSearch";
-import DiscussionSearchSource from "./components/DiscussionSearchSource";
+import DiscussionSearch from './components/DiscussionSearch';
+import DiscussionSearchSource from './components/DiscussionSearchSource';
 declare const _default: {
     'uikit/forum/DiscussionSearch': typeof DiscussionSearch;
     'uikit/forum/DiscussionSearchSource': typeof DiscussionSearchSource;
