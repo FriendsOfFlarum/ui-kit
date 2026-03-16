@@ -1,36 +1,42 @@
 {
-  "name": "sycho/flarum-uikit",
-  "description": "Frontend utilities for extension developers.",
+  "name": "fof/ui-kit",
+  "description": "Frontend utilities for Flarum extension developers.",
   "license": "MIT",
   "authors": [
     {
       "name": "Sami 'SychO' Mazouz",
       "email": "ilyasmazouz@gmail.com",
       "homepage": "https://sycho9.github.io"
+    },
+    {
+      "name": "Rafał Całka",
+      "homepage": "https://github.com/rafaucau",
+      "role": "Developer"
+    },
+    {
+      "name": "FoF Team",
+      "email": "team@friendsofflarum.org",
+      "role": "Maintainer"
     }
   ],
   "type": "library",
+  "homepage": "https://friendsofflarum.org",
   "support": {
-    "issues": "https://github.com/SychO9/flarum-uikit/issues",
-    "source": "https://github.com/SychO9/flarum-uikit"
+    "issues": "https://github.com/FriendsOfFlarum/ui-kit/issues",
+    "source": "https://github.com/FriendsOfFlarum/ui-kit"
   },
   "funding": [
     {
-      "type": "other",
-      "url": "https://www.buymeacoffee.com/sycho"
+      "type": "website",
+      "url": "https://opencollective.com/fof/donate"
     }
   ],
   "require": {
-    "flarum/core": "^1.0.0"
+    "flarum/core": "^v1.8.0"
   },
   "autoload": {
     "psr-4": {
-      "SychO\\UiKit\\": "src/"
-    }
-  },
-  "extra": {
-    "branch-alias": {
-      "dev-master": "0.1.x-dev"
+      "FoF\\UiKit\\": "src/"
     }
   }
 }

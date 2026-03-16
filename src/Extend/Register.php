@@ -1,12 +1,6 @@
 <?php
 
-/**
- * @package Flarum UiKit
- * @author Sami 'SychO' Mazouz (https://sycho9.github.io)
- * @license MIT
- */
-
-namespace SychO\UiKit\Extend;
+namespace FoF\UiKit\Extend;
 
 use Flarum\Extend\ExtenderInterface;
 use Flarum\Frontend\Assets;
@@ -35,7 +29,7 @@ class Register implements ExtenderInterface
                     });
                     $sources->addFile(__DIR__."/../../js/dist/$frontend.js");
                     $sources->addString(function () {
-                        return "flarum.extensions['sycho-uikit']=module.exports";
+                        return "flarum.extensions['fof-ui-kit']=module.exports";
                     });
                 });
 
