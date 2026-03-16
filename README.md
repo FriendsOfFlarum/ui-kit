@@ -59,12 +59,12 @@ import DiscussionSearch from 'flarum/uikit/forum/DiscussionSearch';
 
 ## Installation
 ```ssh
-$ composer require fof/ui-kit:^0.2.0
+$ composer require fof/ui-kit
 ```
 
 ## Updating
 ```ssh
-$ composer update fof/ui-kit:^0.2.0
+$ composer update fof/ui-kit
 ```
 
 ## Links
