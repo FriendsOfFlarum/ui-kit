@@ -1,4 +1,3 @@
-/// <reference types="mithril" />
 import Search, { type SearchAttrs, SearchSource } from 'flarum/forum/components/Search';
 import ItemList from 'flarum/common/utils/ItemList';
 import type Discussion from 'flarum/common/models/Discussion';
