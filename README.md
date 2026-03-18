@@ -1,7 +1,7 @@
 # Flarum UiKit
 [![latest version](https://img.shields.io/packagist/v/fof/ui-kit.svg)](https://packagist.org/packages/fof/ui-kit)
 ![mit license](https://img.shields.io/badge/license-MIT-green.svg)
-![downloads](https://img.shields.io/packagist/dt/fof/ui-kit)
+[![downloads](https://img.shields.io/packagist/dt/fof/ui-kit)](https://packagist.org/packages/fof/ui-kit/stats)
 
 [Flarum](https://flarum.org) UiKit with reusable frontend utilities for extension developers. (***Not An Extension***)
 
