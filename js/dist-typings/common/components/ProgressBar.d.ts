@@ -1,6 +1,12 @@
-export default class ProgressBar extends Component<any, undefined> {
-    constructor();
-    view(): JSX.Element;
-    getProgress(): any;
+import Component, { ComponentAttrs } from 'flarum/common/Component';
+export interface ProgressBarAttrs extends ComponentAttrs {
+    className?: string;
+    mini?: boolean;
+    fancy?: boolean;
+    alternate?: boolean;
+    progress: number;
 }
-import Component from 'flarum/common/Component';
+export default class ProgressBar extends Component<ProgressBarAttrs> {
+    view(): JSX.Element;
+    getProgress(): number;
+}

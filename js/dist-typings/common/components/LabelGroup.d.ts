@@ -1,5 +1,8 @@
-export default class LabelGroup extends Component<any, undefined> {
-    constructor();
-    view(vnode: any): JSX.Element;
+import Component, { ComponentAttrs } from 'flarum/common/Component';
+import { Vnode } from 'mithril';
+export interface LabelGroupAttrs extends ComponentAttrs {
+    className?: string;
 }
-import Component from 'flarum/common/Component';
+export default class LabelGroup extends Component<LabelGroupAttrs> {
+    view(vnode: Vnode<LabelGroupAttrs, this>): JSX.Element;
+}

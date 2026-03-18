@@ -1,5 +1,9 @@
-export default class Label extends Component<any, undefined> {
-    constructor();
-    view(vnode: any): JSX.Element;
+import Component, { ComponentAttrs } from 'flarum/common/Component';
+import { Vnode } from 'mithril';
+export interface LabelAttrs extends ComponentAttrs {
+    color?: string;
+    className?: string;
 }
-import Component from 'flarum/common/Component';
+export default class Label extends Component<LabelAttrs> {
+    view(vnode: Vnode<LabelAttrs, this>): JSX.Element;
+}
