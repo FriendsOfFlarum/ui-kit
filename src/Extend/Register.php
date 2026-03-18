@@ -25,11 +25,11 @@ class Register implements ExtenderInterface
             $container->resolving("flarum.assets.$frontend", function (Assets $assets) use ($frontend) {
                 $assets->js(function (SourceCollector $sources) use ($frontend) {
                     $sources->addString(function () {
-                        return 'var module={}';
+                        return 'var module={};';
                     });
                     $sources->addFile(__DIR__."/../../js/dist/$frontend.js");
                     $sources->addString(function () {
-                        return "flarum.extensions['fof-ui-kit']=module.exports";
+                        return "flarum.extensions['fof-ui-kit']=module.exports;";
                     });
                 });
 
