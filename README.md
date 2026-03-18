@@ -1,8 +1,7 @@
 # Flarum UiKit
-[![latest version](https://img.shields.io/packagist/v/sycho/flarum-uikit.svg?style=flat-square)](https://packagist.org/packages/sycho/flarum-uikit)
-![mit license](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square&color=green)
-![downloads](https://img.shields.io/packagist/dt/sycho/flarum-uikit?color=%23f28d1a&style=flat-square)
-[![donate](https://img.shields.io/badge/donate-buy%20me%20a%20coffee-%23ffde39?style=flat-square)](https://www.buymeacoffee.com/sycho)
+[![latest version](https://img.shields.io/packagist/v/fof/ui-kit.svg)](https://packagist.org/packages/fof/ui-kit)
+![mit license](https://img.shields.io/badge/license-MIT-green.svg)
+[![downloads](https://img.shields.io/packagist/dt/fof/ui-kit)](https://packagist.org/packages/fof/ui-kit/stats)
 
 [Flarum](https://flarum.org) UiKit with reusable frontend utilities for extension developers. (***Not An Extension***)
 
@@ -12,16 +11,16 @@ Use the package's extender to register its resources.
 **extend.php**
 ```php
 return [
-    new SychO\UiKit\Extend\Register,
+    new FoF\UiKit\Extend\Register,
 ];
 ```
 
 **example.js**
 ```jsx
-import ProgressBar from 'ext:sycho/flarum-uikit/common/ProgressBar';
-import Label from 'ext:sycho/flarum-uikit/common/Label';
-import LabelGroup from 'ext:sycho/flarum-uikit/common/LabelGroup';
-import DiscussionSearch from 'ext:sycho/flarum-uikit/forum/DiscussionSearch';
+import ProgressBar from 'ext:fof/ui-kit/common/ProgressBar';
+import Label from 'ext:fof/ui-kit/common/Label';
+import LabelGroup from 'ext:fof/ui-kit/common/LabelGroup';
+import DiscussionSearch from 'ext:fof/ui-kit/forum/DiscussionSearch';
 
 /**
  * @param mini bool           small sized
@@ -51,17 +50,17 @@ import DiscussionSearch from 'ext:sycho/flarum-uikit/forum/DiscussionSearch';
 
 ## Installation
 ```ssh
-$ composer require sycho/flarum-uikit:^0.3.0
+composer require fof/ui-kit
 ```
 
 ## Updating
 ```ssh
-$ composer update sycho/flarum-uikit:^0.3.0
+composer update fof/ui-kit
 ```
 
 ## Links
-* [GitHub](https://github.com/SychO9/flarum-uikit)
-* [Packagist](https://packagist.org/packages/sycho/flarum-uikit)
+* [GitHub](https://github.com/FriendsOfFlarum/ui-kit)
+* [Packagist](https://packagist.org/packages/fof/ui-kit)
 
 ## License
 The MIT License.
