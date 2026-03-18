@@ -4,6 +4,6 @@ import compat from '../common/compat';
 
 export default {
   ...compat,
-  'uikit/forum/DiscussionSearch': DiscussionSearch,
-  'uikit/forum/DiscussionSearchSource': DiscussionSearchSource,
+  'ui-kit/forum/DiscussionSearch': DiscussionSearch,
+  'ui-kit/forum/DiscussionSearchSource': DiscussionSearchSource,
 };

@@ -17,12 +17,12 @@ return [
 
 **example.js**
 ```jsx
-import ProgressBar from 'flarum/uikit/common/ProgressBar';
-import Label from 'flarum/uikit/common/Label';
-import LabelGroup from 'flarum/uikit/common/LabelGroup';
-import Input from 'flarum/uikit/common/Input';
+import ProgressBar from 'flarum/ui-kit/common/ProgressBar';
+import Label from 'flarum/ui-kit/common/Label';
+import LabelGroup from 'flarum/ui-kit/common/LabelGroup';
+import Input from 'flarum/ui-kit/common/Input';
 
-import DiscussionSearch from 'flarum/uikit/forum/DiscussionSearch';
+import DiscussionSearch from 'flarum/ui-kit/forum/DiscussionSearch';
 
 /**
  * @param mini bool           small sized

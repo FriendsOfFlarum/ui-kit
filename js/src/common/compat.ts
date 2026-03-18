@@ -4,8 +4,8 @@ import Label from './components/Label';
 import LabelGroup from './components/LabelGroup';
 
 export default {
-  'uikit/common/components/Input': Input,
-  'uikit/common/components/ProgressBar': ProgressBar,
-  'uikit/common/components/Label': Label,
-  'uikit/common/components/LabelGroup': LabelGroup,
+  'ui-kit/common/components/Input': Input,
+  'ui-kit/common/components/ProgressBar': ProgressBar,
+  'ui-kit/common/components/Label': Label,
+  'ui-kit/common/components/LabelGroup': LabelGroup,
 };
