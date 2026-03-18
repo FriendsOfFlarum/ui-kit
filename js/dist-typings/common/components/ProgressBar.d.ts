@@ -3,4 +3,4 @@ export default class ProgressBar extends Component<any, undefined> {
     view(): JSX.Element;
     getProgress(): any;
 }
-import Component from "flarum/common/Component";
+import Component from 'flarum/common/Component';
