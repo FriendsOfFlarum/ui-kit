@@ -5,7 +5,8 @@ export interface DiscussionSearchAttrs extends SearchAttrs {
     onSelect: (discussion: Discussion) => void;
     ignore: string;
 }
-export default class DiscussionSearch<T extends DiscussionSearchAttrs> extends Search<T> {
+export default class DiscussionSearch extends Search<DiscussionSearchAttrs> {
     view(): JSX.Element;
+    selectResult(): void;
     sourceItems(): ItemList<SearchSource>;
 }
