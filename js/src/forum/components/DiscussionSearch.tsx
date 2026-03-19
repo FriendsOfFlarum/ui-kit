@@ -12,14 +12,12 @@ export interface DiscussionSearchAttrs extends SearchAttrs {
   ignore: string;
 }
 
-export default class DiscussionSearch<T extends DiscussionSearchAttrs> extends Search<T> {
+export default class DiscussionSearch extends Search<DiscussionSearchAttrs> {
   view() {
     const currentSearch = this.searchState.getInitialSearch();
 
-    // Initialize search sources in the view rather than the constructor so
-    // that we have access to app.forum.
+    // Initialize search sources in the view rather than the constructor so that we have access to app.forum.
     if (!this.sources) this.sources = this.sourceItems().toArray();
-
     // Hide the search view if no sources were loaded
     if (!this.sources.length) return <div></div>;
 
@@ -63,6 +61,22 @@ export default class DiscussionSearch<T extends DiscussionSearchAttrs> extends S
         </ul>
       </div>
     );
+  }
+
+  selectResult() {
+    if (this.searchTimeout) clearTimeout(this.searchTimeout);
+
+    this.loadingSources = 0;
+
+    const actionable = this.getItem(this.index).find('button, a').get(0);
+
+    if (this.searchState.getValue() && actionable) {
+      actionable.click();
+    } else {
+      this.clear();
+    }
+
+    this.$('input').trigger('blur');
   }
 
   sourceItems() {
