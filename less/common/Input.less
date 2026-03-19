@@ -4,14 +4,14 @@
 }
 
 .UiKit-Input-icon {
-  width: @uikit-InputIconWidth;
+  width: var(--ui-kit-input-icon-width);
   text-align: center;
-  margin-right: -@uikit-InputIconWidth;
+  margin-right: calc(-1 * var(--ui-kit-input-icon-width));
   padding-left: 13px;
   z-index: 1;
   color: var(--control-color);
 }
 
 .UiKit-FormControl.hasIcon {
-  padding-left: calc(@uikit-InputIconWidth + 13px);
+  padding-left: calc(var(--ui-kit-input-icon-width) + 13px);
 }
