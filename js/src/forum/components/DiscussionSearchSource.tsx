@@ -1,61 +1,82 @@
-import type Mithril from 'mithril';
 import app from 'flarum/forum/app';
 import highlight from 'flarum/common/helpers/highlight';
-import { SearchSource } from 'flarum/forum/components/Search';
+import type { SearchSource } from 'flarum/forum/components/Search';
 import type Discussion from 'flarum/common/models/Discussion';
 import Button from 'flarum/common/components/Button';
 
 export default class DiscussionSearchSource implements SearchSource {
-  protected results = new Map<string, unknown[]>();
-  protected onSelect!: (discussion: Discussion) => void;
-  protected ignore!: string;
+  protected readonly results = new Map<string, Discussion[]>();
 
-  constructor(onSelect: (discussion: Discussion) => void, ignore: string) {
-    this.results = new Map();
+  constructor(
+    protected readonly onSelect: (discussion: Discussion) => void,
+    protected readonly ignore: string
+  ) {}
 
-    this.onSelect = onSelect;
-    this.ignore = ignore;
-  }
-
-  search(query: string): Promise<void> {
-    query = query.toLowerCase();
+  async search(rawQuery: string): Promise<void> {
+    const query = this.normalizeQuery(rawQuery);
 
     this.results.set(query, []);
 
-    const params = {
-      filter: { q: query },
-      page: { limit: 3 },
-    };
-
-    const id = Number(query);
-
-    if (!Number.isNaN(id) && id !== Number(this.ignore)) {
-      return app.store.find('discussions', String(id)).then((d) => {
-        this.results.set(query, [d]);
-      });
+    if (!query) {
+      m.redraw();
+      return;
     }
 
-    return app.store.find<Discussion[]>('discussions', params).then((results) => {
-      this.results.set(
-        query,
-        results.filter((d: Discussion) => d.id() !== this.ignore)
-      );
-    });
+    try {
+      const results = this.isIdQuery(query) ? await this.searchById(query) : await this.searchByQuery(query);
+      this.results.set(query, results);
+    } catch {
+      this.results.set(query, []);
+    } finally {
+      m.redraw();
+    }
   }
 
-  view(query: string): Array<Mithril.Vnode> {
-    query = query.toLowerCase();
+  view(rawQuery: string) {
+    const query = this.normalizeQuery(rawQuery);
+    const results = this.results.get(query) ?? [];
 
-    return ((this.results.get(query) || []) as Discussion[]).map((discussion: Discussion) => {
+    return results.map((discussion) => {
+      const discussionId = discussion.id();
+
+      if (!discussionId) return null;
+
       return (
-        <li className="DiscussionSearchResult" data-index={'discussions' + discussion.id()}>
+        <li key={discussionId} className="DiscussionSearchResult" data-index={`discussions${discussionId}`}>
           <Button onclick={() => this.onSelect(discussion)}>
-            {/* @ts-ignore */}
-            <div className="DiscussionSearchResult-id">{discussion.id()}</div>
+            <div className="DiscussionSearchResult-id">{discussionId}</div>
             <div className="DiscussionSearchResult-title">{highlight(discussion.title(), query)}</div>
           </Button>
         </li>
       );
     });
+  }
+
+  protected async searchById(id: string): Promise<Discussion[]> {
+    if (id === this.ignore) return [];
+
+    const discussion = await app.store.find<Discussion>('discussions', id);
+    return discussion ? [discussion] : [];
+  }
+
+  protected async searchByQuery(query: string): Promise<Discussion[]> {
+    const results = await app.store.find<Discussion[]>('discussions', {
+      filter: { q: query },
+      page: { limit: this.limit() },
+    });
+
+    return results.filter((discussion) => discussion.id() !== this.ignore);
+  }
+
+  protected isIdQuery(query: string): boolean {
+    return /^\d+$/.test(query);
+  }
+
+  protected normalizeQuery(query: string): string {
+    return query.trim().toLowerCase();
+  }
+
+  protected limit(): number {
+    return 3;
   }
 }
