@@ -1,4 +1,3 @@
-/// <reference types="mithril" />
 import Component, { ComponentAttrs } from 'flarum/common/Component';
 export type InputAttrs = ComponentAttrs & {
     icon?: string;
