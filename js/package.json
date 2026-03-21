@@ -6,14 +6,11 @@
     "@flarum/prettier-config": "^1.0.0",
     "flarum-tsconfig": "^1.0.0",
     "flarum-webpack-config": "^2.0.2",
-    "sortablejs": "^1.15.7",
     "typescript": "^5.9.3",
     "webpack": "^5.105.4",
     "webpack-cli": "^7.0.2"
   },
   "devDependencies": {
-    "@types/sortablejs": "^1.15.9",
-    "bundlewatch": "^0.4.1",
     "prettier": "^3.8.1"
   },
   "scripts": {
